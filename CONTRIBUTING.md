@@ -105,7 +105,7 @@ We follow **[Moodle Coding Style](https://moodledev.io/general/development/polic
 ### CSS
 
 - Follow **Bootstrap 5** conventions.
-- Prefix all selectors with `.local-tinytoolbar-` or `.tinytoolbar-`.
+- Prefix all selectors with `.tool-tinytoolbar-` or `.tinytoolbar-`.
 - Lint:
   ```bash
   npx stylelint styles.css

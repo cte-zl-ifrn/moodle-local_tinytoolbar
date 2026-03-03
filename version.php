@@ -15,16 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details for local_tinytoolbar.
+ * Version details for tool_tinytoolbar.
  *
- * @package    local_tinytoolbar
+ * @package    tool_tinytoolbar
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_tinytoolbar';
+$plugin->component = 'tool_tinytoolbar';
 $plugin->version   = 2024120100;
 $plugin->requires  = 2024042200; // Moodle 4.5+
 $plugin->maturity  = MATURITY_STABLE;
