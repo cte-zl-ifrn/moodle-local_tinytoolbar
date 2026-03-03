@@ -15,14 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * External functions for local_tinytoolbar.
+ * External functions for tool_tinytoolbar.
  *
- * @package    local_tinytoolbar
+ * @package    tool_tinytoolbar
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace local_tinytoolbar;
+namespace tool_tinytoolbar;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -36,7 +36,7 @@ use external_multiple_structure;
 use context_system;
 
 /**
- * External API class for local_tinytoolbar.
+ * External API class for tool_tinytoolbar.
  */
 class external extends external_api {
 
@@ -64,9 +64,9 @@ class external extends external_api {
         require_capability('moodle/site:config', $context);
 
         $config = toolbar_config::get_active_config();
-        $toolbarjson = get_config('local_tinytoolbar', 'toolbar_json');
-        $activepreset = get_config('local_tinytoolbar', 'active_preset') ?: toolbar_config::PRESET_CLASSIC;
-        $enabled = (bool) get_config('local_tinytoolbar', 'enable_plugin');
+        $toolbarjson = get_config('tool_tinytoolbar', 'toolbar_json');
+        $activepreset = get_config('tool_tinytoolbar', 'active_preset') ?: toolbar_config::PRESET_CLASSIC;
+        $enabled = (bool) get_config('tool_tinytoolbar', 'enable_plugin');
 
         return [
             'enabled'       => $enabled,
@@ -128,21 +128,21 @@ class external extends external_api {
 
         // Validate preset name.
         if (!in_array($params['active_preset'], toolbar_config::get_preset_names())) {
-            return ['success' => false, 'message' => get_string('error:invalidpreset', 'local_tinytoolbar')];
+            return ['success' => false, 'message' => get_string('error:invalidpreset', 'tool_tinytoolbar')];
         }
 
         // Validate custom JSON when needed.
         if ($params['active_preset'] === toolbar_config::PRESET_CUSTOM && !empty($params['toolbar_json'])) {
             if (!toolbar_config::validate_json($params['toolbar_json'])) {
-                return ['success' => false, 'message' => get_string('invalidjson', 'local_tinytoolbar')];
+                return ['success' => false, 'message' => get_string('invalidjson', 'tool_tinytoolbar')];
             }
         }
 
-        set_config('enable_plugin', (int) $params['enabled'], 'local_tinytoolbar');
-        set_config('active_preset', $params['active_preset'], 'local_tinytoolbar');
-        set_config('toolbar_json', $params['toolbar_json'], 'local_tinytoolbar');
+        set_config('enable_plugin', (int) $params['enabled'], 'tool_tinytoolbar');
+        set_config('active_preset', $params['active_preset'], 'tool_tinytoolbar');
+        set_config('toolbar_json', $params['toolbar_json'], 'tool_tinytoolbar');
 
-        return ['success' => true, 'message' => get_string('configsaved', 'local_tinytoolbar')];
+        return ['success' => true, 'message' => get_string('configsaved', 'tool_tinytoolbar')];
     }
 
     /**
@@ -185,14 +185,14 @@ class external extends external_api {
         foreach ($presets as $name => $json) {
             $result[] = [
                 'name'  => $name,
-                'label' => get_string('preset_' . $name, 'local_tinytoolbar'),
+                'label' => get_string('preset_' . $name, 'tool_tinytoolbar'),
                 'json'  => $json,
             ];
         }
         // Add the "custom" entry without a JSON payload.
         $result[] = [
             'name'  => toolbar_config::PRESET_CUSTOM,
-            'label' => get_string('preset_custom', 'local_tinytoolbar'),
+            'label' => get_string('preset_custom', 'tool_tinytoolbar'),
             'json'  => '',
         ];
 

@@ -14,11 +14,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * AMD module: local_tinytoolbar/index
+ * AMD module: tool_tinytoolbar/index
  *
  * Re-exports public API of admin and preview modules for external consumers.
  *
- * @module     local_tinytoolbar/index
+ * @module     tool_tinytoolbar/index
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

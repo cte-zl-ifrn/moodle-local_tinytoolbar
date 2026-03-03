@@ -14,12 +14,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * AMD module: local_tinytoolbar/preview
+ * AMD module: tool_tinytoolbar/preview
  *
  * Manages the live-preview iframe shown alongside the visual toolbar builder.
  * It listens for configuration changes and reloads the iframe src accordingly.
  *
- * @module     local_tinytoolbar/preview
+ * @module     tool_tinytoolbar/preview
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -61,6 +61,6 @@ const applyPreview = (configJson) => {
         return; // Do not update preview on invalid JSON.
     }
 
-    const baseUrl = `${Config.wwwroot}/local/tinytoolbar/admin/preview.php`;
+    const baseUrl = `${Config.wwwroot}/admin/tool/tinytoolbar/admin/preview.php`;
     frame.src = `${baseUrl}?config=${encoded}`;
 };

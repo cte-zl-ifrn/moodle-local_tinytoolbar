@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Library functions for local_tinytoolbar.
+ * Library functions for tool_tinytoolbar.
  *
- * @package    local_tinytoolbar
+ * @package    tool_tinytoolbar
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -33,6 +33,6 @@ defined('MOODLE_INTERNAL') || die();
  *
  * @return array TinyMCE configuration options to merge.
  */
-function local_tinytoolbar_editor_tiny_get_config_data(): array {
-    return \local_tinytoolbar\toolbar_config::tiny_get_config_data();
+function tool_tinytoolbar_editor_tiny_get_config_data(): array {
+    return \tool_tinytoolbar\toolbar_config::tiny_get_config_data();
 }

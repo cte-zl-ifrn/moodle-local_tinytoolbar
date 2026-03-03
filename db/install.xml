@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="local/tinytoolbar/db" VERSION="20241201" COMMENT="XMLDB file for Moodle local/tinytoolbar"
+<XMLDB PATH="admin/tool/tinytoolbar/db" VERSION="20241201" COMMENT="XMLDB file for Moodle admin/tool/tinytoolbar"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
 >
   <TABLES>
-    <TABLE NAME="local_tinytoolbar_presets" COMMENT="Custom toolbar presets saved by administrators">
+    <TABLE NAME="tool_tinytoolbar_presets" COMMENT="Custom toolbar presets saved by administrators">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Preset name"/>

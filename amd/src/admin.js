@@ -14,12 +14,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * AMD module: local_tinytoolbar/admin
+ * AMD module: tool_tinytoolbar/admin
  *
  * Visual toolbar configurator – handles the drag-and-drop builder, preset
  * selection, live JSON validation and AJAX save on the admin config page.
  *
- * @module     local_tinytoolbar/admin
+ * @module     tool_tinytoolbar/admin
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -66,7 +66,7 @@ export const init = async() => {
  */
 const loadPresets = async() => {
     const result = await Ajax.call([{
-        methodname: 'local_tinytoolbar_get_presets',
+        methodname: 'tool_tinytoolbar_get_presets',
         args: {},
     }])[0];
 
@@ -190,7 +190,7 @@ const onSave = async(e) => {
     e.preventDefault();
 
     if (!validateJson()) {
-        const msg = await getString('invalidjson', 'local_tinytoolbar');
+        const msg = await getString('invalidjson', 'tool_tinytoolbar');
         Notification.addNotification({message: msg, type: 'error'});
         return;
     }
@@ -201,7 +201,7 @@ const onSave = async(e) => {
 
     try {
         const result = await Ajax.call([{
-            methodname: 'local_tinytoolbar_save_config',
+            methodname: 'tool_tinytoolbar_save_config',
             args: {
                 enabled:       enableToggle ? enableToggle.checked : false,
                 active_preset: presetSelect ? presetSelect.value : 'classic',
@@ -257,14 +257,14 @@ const toggleEditorMode = async() => {
         visualPanel.classList.remove('d-none');
         syncVisualFromJson();
         if (btn) {
-            btn.textContent = await getString('jsoneditor', 'local_tinytoolbar');
+            btn.textContent = await getString('jsoneditor', 'tool_tinytoolbar');
         }
     } else {
         visualPanel.classList.add('d-none');
         jsonPanel.classList.remove('d-none');
         syncJsonFromVisual();
         if (btn) {
-            btn.textContent = await getString('visualeditor', 'local_tinytoolbar');
+            btn.textContent = await getString('visualeditor', 'tool_tinytoolbar');
         }
     }
 };

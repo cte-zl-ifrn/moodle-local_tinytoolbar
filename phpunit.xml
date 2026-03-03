@@ -11,7 +11,7 @@
 >
 
     <testsuites>
-        <testsuite name="local_tinytoolbar_testsuite">
+        <testsuite name="tool_tinytoolbar_testsuite">
             <directory suffix="_test.php">tests</directory>
         </testsuite>
     </testsuites>

@@ -15,23 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Live preview page for local_tinytoolbar (rendered inside an iframe).
+ * Live preview page for tool_tinytoolbar (rendered inside an iframe).
  *
- * @package    local_tinytoolbar
+ * @package    tool_tinytoolbar
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once('../../../config.php');
+require_once('../../../../config.php');
 
-use local_tinytoolbar\toolbar_config;
+use tool_tinytoolbar\toolbar_config;
 
 require_login();
 require_capability('moodle/site:config', context_system::instance());
 
-$PAGE->set_url('/local/tinytoolbar/admin/preview.php');
+$PAGE->set_url('/admin/tool/tinytoolbar/admin/preview.php');
 $PAGE->set_context(context_system::instance());
-$PAGE->set_title(get_string('preview', 'local_tinytoolbar'));
+$PAGE->set_title(get_string('preview', 'tool_tinytoolbar'));
 $PAGE->set_pagelayout('embedded');
 
 $configjson = optional_param('config', '', PARAM_RAW);
@@ -50,7 +50,7 @@ $menubaroption  = isset($config['menubar']) ? (is_bool($config['menubar']) ? ($c
 
 echo $OUTPUT->header();
 ?>
-<div id="tinytoolbar-preview-container" class="local-tinytoolbar-preview">
+<div id="tinytoolbar-preview-container" class="tool-tinytoolbar-preview">
     <div id="tinytoolbar-preview-editor"></div>
 </div>
 <script>

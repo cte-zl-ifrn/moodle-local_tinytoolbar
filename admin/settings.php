@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Admin settings page for local_tinytoolbar.
+ * Admin settings page for tool_tinytoolbar.
  *
- * @package    local_tinytoolbar
+ * @package    tool_tinytoolbar
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,51 +26,51 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
     $settings = new admin_settingpage(
-        'local_tinytoolbar',
-        new lang_string('pluginname', 'local_tinytoolbar')
+        'tool_tinytoolbar',
+        new lang_string('pluginname', 'tool_tinytoolbar')
     );
 
-    $ADMIN->add('localplugins', $settings);
+    $ADMIN->add('tools', $settings);
 
     // Enable/disable toggle.
     $settings->add(new admin_setting_configcheckbox(
-        'local_tinytoolbar/enable_plugin',
-        new lang_string('enable_plugin', 'local_tinytoolbar'),
-        new lang_string('enable_plugin_desc', 'local_tinytoolbar'),
+        'tool_tinytoolbar/enable_plugin',
+        new lang_string('enable_plugin', 'tool_tinytoolbar'),
+        new lang_string('enable_plugin_desc', 'tool_tinytoolbar'),
         0
     ));
 
     // Active preset selector.
     $presetoptions = [
-        'minimal'       => new lang_string('preset_minimal', 'local_tinytoolbar'),
-        'classic'       => new lang_string('preset_classic', 'local_tinytoolbar'),
-        'full'          => new lang_string('preset_full', 'local_tinytoolbar'),
-        'accessibility' => new lang_string('preset_accessibility', 'local_tinytoolbar'),
-        'custom'        => new lang_string('preset_custom', 'local_tinytoolbar'),
+        'minimal'       => new lang_string('preset_minimal', 'tool_tinytoolbar'),
+        'classic'       => new lang_string('preset_classic', 'tool_tinytoolbar'),
+        'full'          => new lang_string('preset_full', 'tool_tinytoolbar'),
+        'accessibility' => new lang_string('preset_accessibility', 'tool_tinytoolbar'),
+        'custom'        => new lang_string('preset_custom', 'tool_tinytoolbar'),
     ];
 
     $settings->add(new admin_setting_configselect(
-        'local_tinytoolbar/active_preset',
-        new lang_string('active_preset', 'local_tinytoolbar'),
-        new lang_string('active_preset_desc', 'local_tinytoolbar'),
+        'tool_tinytoolbar/active_preset',
+        new lang_string('active_preset', 'tool_tinytoolbar'),
+        new lang_string('active_preset_desc', 'tool_tinytoolbar'),
         'classic',
         $presetoptions
     ));
 
     // Custom JSON textarea.
     $settings->add(new admin_setting_configtextarea(
-        'local_tinytoolbar/toolbar_json',
-        new lang_string('toolbar_json', 'local_tinytoolbar'),
-        new lang_string('toolbar_json_desc', 'local_tinytoolbar'),
+        'tool_tinytoolbar/toolbar_json',
+        new lang_string('toolbar_json', 'tool_tinytoolbar'),
+        new lang_string('toolbar_json_desc', 'tool_tinytoolbar'),
         ''
     ));
 
     // Link to the full visual configurator.
-    $configurl = new moodle_url('/local/tinytoolbar/admin/config_form.php');
+    $configurl = new moodle_url('/admin/tool/tinytoolbar/admin/config_form.php');
     $settings->add(new admin_setting_heading(
-        'local_tinytoolbar/visualconfig_heading',
-        new lang_string('configuretoolbar', 'local_tinytoolbar'),
-        html_writer::link($configurl, new lang_string('configuretoolbar', 'local_tinytoolbar'),
+        'tool_tinytoolbar/visualconfig_heading',
+        new lang_string('configuretoolbar', 'tool_tinytoolbar'),
+        html_writer::link($configurl, new lang_string('configuretoolbar', 'tool_tinytoolbar'),
             ['class' => 'btn btn-primary'])
     ));
 }

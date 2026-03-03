@@ -1,14 +1,14 @@
 /**
- * Styles for local_tinytoolbar.
+ * Styles for tool_tinytoolbar.
  *
- * @package    local_tinytoolbar
+ * @package    tool_tinytoolbar
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /* ── Admin configurator page ─────────────────────────────────────────────── */
 
-.local-tinytoolbar-configurator {
+.tool-tinytoolbar-configurator {
     max-width: 1200px;
 }
 
@@ -71,7 +71,7 @@
 
 /* ── Preview iframe wrapper ───────────────────────────────────────────────── */
 
-.local-tinytoolbar-preview {
+.tool-tinytoolbar-preview {
     padding: 1rem;
 }
 
