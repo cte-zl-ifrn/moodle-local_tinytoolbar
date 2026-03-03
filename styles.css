@@ -1,0 +1,84 @@
+/**
+ * Styles for local_tinytoolbar.
+ *
+ * @package    local_tinytoolbar
+ * @copyright  2024 IFRN
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+/* ── Admin configurator page ─────────────────────────────────────────────── */
+
+.local-tinytoolbar-configurator {
+    max-width: 1200px;
+}
+
+/* JSON textarea */
+.tinytoolbar-json-textarea {
+    font-size: 0.85rem;
+    min-height: 220px;
+    resize: vertical;
+}
+
+/* JSON validation status indicator */
+.tinytoolbar-json-status {
+    display: inline-block;
+    font-size: 1.1rem;
+    min-width: 1.5em;
+    text-align: center;
+}
+
+.tinytoolbar-json-status.is-valid {
+    color: #198754; /* Bootstrap success green */
+}
+
+.tinytoolbar-json-status.is-invalid {
+    color: #dc3545; /* Bootstrap danger red */
+}
+
+/* ── Drag-and-drop palette & builder ─────────────────────────────────────── */
+
+.tinytoolbar-palette,
+.tinytoolbar-builder {
+    min-height: 50px;
+    background: #f8f9fa;
+    transition: background 0.15s;
+}
+
+.tinytoolbar-builder {
+    min-height: 60px;
+}
+
+/* Highlight drop zone while dragging */
+.tinytoolbar-builder.drag-over,
+.tinytoolbar-palette.drag-over {
+    background: #e8f4fd;
+    border-color: #0d6efd !important;
+}
+
+/* Individual toolbar buttons in palette / builder */
+.tinytoolbar-btn {
+    cursor: grab;
+    user-select: none;
+    font-size: 0.8rem;
+    padding: 0.3em 0.6em;
+    transition: opacity 0.15s;
+}
+
+.tinytoolbar-btn.dragging {
+    opacity: 0.4;
+    cursor: grabbing;
+}
+
+/* ── Preview iframe wrapper ───────────────────────────────────────────────── */
+
+.local-tinytoolbar-preview {
+    padding: 1rem;
+}
+
+/* ── Responsive tweaks ────────────────────────────────────────────────────── */
+
+@media (max-width: 991.98px) {
+    #tinytoolbar-preview-frame {
+        height: 300px !important;
+    }
+}

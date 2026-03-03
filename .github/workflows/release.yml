@@ -1,0 +1,80 @@
+name: Generate Release ZIP
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish release ZIP
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build AMD modules (Grunt)
+        run: npx grunt amd --force || true
+
+      - name: Determine version tag
+        id: version
+        run: |
+          if [[ "${{ github.ref_type }}" == "tag" ]]; then
+            echo "tag=${{ github.ref_name }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=latest" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create release ZIP
+        uses: thedoctor0/zip-release@0.7.6
+        with:
+          type: 'zip'
+          filename: 'local_tinytoolbar-${{ steps.version.outputs.tag }}.zip'
+          exclusions: >-
+            .git
+            .github
+            node_modules
+            .eslintrc
+            .stylelintrc
+            Gruntfile.js
+            package.json
+            package-lock.json
+            phpunit.xml
+            behat.yml
+            CONTRIBUTING.md
+            SECURITY.md
+
+      - name: Upload ZIP as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: local_tinytoolbar-${{ steps.version.outputs.tag }}
+          path: local_tinytoolbar-${{ steps.version.outputs.tag }}.zip
+          retention-days: 30
+
+      - name: Upload ZIP to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: local_tinytoolbar-${{ steps.version.outputs.tag }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
