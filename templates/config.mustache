@@ -1,5 +1,5 @@
 {{!
-    Template: tool_tinytoolbar/config
+    Template: tool_tinycustomizer/config
 
     Renders the visual toolbar configurator admin page.
 
@@ -13,22 +13,22 @@
         - previewurl:    URL for the live-preview iframe.
         - str:           Object with pre-fetched language strings.
 
-    @template tool_tinytoolbar/config
+    @template tool_tinycustomizer/config
     @copyright 2024 IFRN
     @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 }}
 
-<div class="tool-tinytoolbar-configurator container-fluid px-0">
+<div class="tool-tinycustomizer-configurator container-fluid px-0">
 
     {{! ── Header ─────────────────────────────────────────────────────────── }}
     <div class="d-flex align-items-center mb-4">
-        <img src="{{config.wwwroot}}/admin/tool/tinytoolbar/pix/toolbar.svg"
+        <img src="{{config.wwwroot}}/admin/tool/tinycustomizer/pix/toolbar.svg"
              alt="" width="32" height="32" class="me-2" aria-hidden="true">
         <h2 class="mb-0">{{str.configuretoolbar}}</h2>
     </div>
 
     {{! ── Config form ─────────────────────────────────────────────────────── }}
-    <form id="tinytoolbar-config-form" method="post" action="{{actionurl}}" class="mform">
+    <form id="tinycustomizer-config-form" method="post" action="{{actionurl}}" class="mform">
         <input type="hidden" name="sesskey" value="{{sesskey}}">
         <input type="hidden" name="action" value="save">
 
@@ -61,44 +61,44 @@
 
                 {{! Editor mode toggle button }}
                 <div class="mb-3">
-                    <button type="button" id="tinytoolbar-toggle-mode" class="btn btn-outline-secondary btn-sm">
+                    <button type="button" id="tinycustomizer-toggle-mode" class="btn btn-outline-secondary btn-sm">
                         {{str.visualeditor}}
                     </button>
                 </div>
 
                 {{! JSON editor panel }}
-                <div id="tinytoolbar-json-panel">
+                <div id="tinycustomizer-json-panel">
                     <div class="mb-1 d-flex align-items-center justify-content-between">
                         <label class="form-label fw-bold mb-0" for="id_toolbar_json">
                             {{str.toolbar_json}}
                         </label>
-                        <span id="tinytoolbar-json-status" aria-live="polite" class="tinytoolbar-json-status"></span>
+                        <span id="tinycustomizer-json-status" aria-live="polite" class="tinycustomizer-json-status"></span>
                     </div>
                     <textarea id="id_toolbar_json" name="toolbar_json"
-                              class="form-control font-monospace tinytoolbar-json-textarea"
+                              class="form-control font-monospace tinycustomizer-json-textarea"
                               rows="10" spellcheck="false">{{toolbar_json}}</textarea>
                 </div>
 
                 {{! Visual drag-and-drop builder panel (hidden by default) }}
-                <div id="tinytoolbar-visual-panel" class="d-none">
+                <div id="tinycustomizer-visual-panel" class="d-none">
                     <p class="fw-bold mb-2">{{str.visualeditor}}</p>
 
                     {{! Available buttons palette }}
                     <div class="mb-3">
                         <p class="small text-muted mb-1">Available buttons (drag to toolbar):</p>
-                        <div id="tinytoolbar-available" class="tinytoolbar-palette border rounded p-2 d-flex flex-wrap gap-1">
+                        <div id="tinycustomizer-available" class="tinycustomizer-palette border rounded p-2 d-flex flex-wrap gap-1">
                             {{#availablebuttons}}
-                            <span class="tinytoolbar-btn badge bg-primary" draggable="true" data-button="{{name}}">{{name}}</span>
+                            <span class="tinycustomizer-btn badge bg-primary" draggable="true" data-button="{{name}}">{{name}}</span>
                             {{/availablebuttons}}
-                            <span class="tinytoolbar-btn badge bg-secondary" draggable="true" data-button="|">|</span>
+                            <span class="tinycustomizer-btn badge bg-secondary" draggable="true" data-button="|">|</span>
                         </div>
                     </div>
 
                     {{! Toolbar builder drop zone }}
                     <div class="mb-2">
                         <p class="small text-muted mb-1">Toolbar (drop buttons here):</p>
-                        <div id="tinytoolbar-builder"
-                             class="tinytoolbar-builder border rounded p-2 d-flex flex-wrap gap-1 min-height-50"
+                        <div id="tinycustomizer-builder"
+                             class="tinycustomizer-builder border rounded p-2 d-flex flex-wrap gap-1 min-height-50"
                              aria-label="Toolbar builder drop zone">
                         </div>
                     </div>
@@ -106,10 +106,10 @@
 
                 {{! Action buttons }}
                 <div class="d-flex gap-2 mt-3">
-                    <button type="submit" id="tinytoolbar-save" class="btn btn-primary">
+                    <button type="submit" id="tinycustomizer-save" class="btn btn-primary">
                         {{str.savechanges}}
                     </button>
-                    <button type="button" id="tinytoolbar-reset" class="btn btn-outline-secondary">
+                    <button type="button" id="tinycustomizer-reset" class="btn btn-outline-secondary">
                         {{str.resettodefault}}
                     </button>
                 </div>
@@ -120,7 +120,7 @@
             <div class="col-lg-6">
                 <p class="fw-bold mb-2">{{str.previewlive}}</p>
                 <div class="border rounded overflow-hidden">
-                    <iframe id="tinytoolbar-preview-frame"
+                    <iframe id="tinycustomizer-preview-frame"
                             src="{{previewurl}}"
                             title="{{str.previewlive}}"
                             class="w-100"

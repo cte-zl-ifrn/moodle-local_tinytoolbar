@@ -49,7 +49,7 @@ jobs:
         uses: thedoctor0/zip-release@0.7.6
         with:
           type: 'zip'
-          filename: 'tool_tinytoolbar-${{ steps.version.outputs.tag }}.zip'
+          filename: 'tool_tinycustomizer-${{ steps.version.outputs.tag }}.zip'
           exclusions: >-
             .git
             .github
@@ -67,14 +67,14 @@ jobs:
       - name: Upload ZIP as workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: tool_tinytoolbar-${{ steps.version.outputs.tag }}
-          path: tool_tinytoolbar-${{ steps.version.outputs.tag }}.zip
+          name: tool_tinycustomizer-${{ steps.version.outputs.tag }}
+          path: tool_tinycustomizer-${{ steps.version.outputs.tag }}.zip
           retention-days: 30
 
       - name: Upload ZIP to GitHub Release
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
-          files: tool_tinytoolbar-${{ steps.version.outputs.tag }}.zip
+          files: tool_tinycustomizer-${{ steps.version.outputs.tag }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

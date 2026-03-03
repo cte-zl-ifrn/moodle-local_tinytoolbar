@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Web services for tool_tinytoolbar.
+ * Web services for tool_tinycustomizer.
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,24 +25,24 @@
 defined('MOODLE_INTERNAL') || die();
 
 $functions = [
-    'tool_tinytoolbar_get_config' => [
-        'classname'     => 'tool_tinytoolbar\external',
+    'tool_tinycustomizer_get_config' => [
+        'classname'     => 'tool_tinycustomizer\external',
         'methodname'    => 'get_config',
         'description'   => 'Get the current TinyMCE toolbar configuration.',
         'type'          => 'read',
         'ajax'          => true,
         'capabilities'  => 'moodle/site:config',
     ],
-    'tool_tinytoolbar_save_config' => [
-        'classname'     => 'tool_tinytoolbar\external',
+    'tool_tinycustomizer_save_config' => [
+        'classname'     => 'tool_tinycustomizer\external',
         'methodname'    => 'save_config',
         'description'   => 'Save the TinyMCE toolbar configuration.',
         'type'          => 'write',
         'ajax'          => true,
         'capabilities'  => 'moodle/site:config',
     ],
-    'tool_tinytoolbar_get_presets' => [
-        'classname'     => 'tool_tinytoolbar\external',
+    'tool_tinycustomizer_get_presets' => [
+        'classname'     => 'tool_tinycustomizer\external',
         'methodname'    => 'get_presets',
         'description'   => 'Get all available toolbar presets.',
         'type'          => 'read',

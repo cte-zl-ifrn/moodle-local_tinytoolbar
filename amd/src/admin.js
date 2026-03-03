@@ -14,12 +14,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * AMD module: tool_tinytoolbar/admin
+ * AMD module: tool_tinycustomizer/admin
  *
  * Visual toolbar configurator – handles the drag-and-drop builder, preset
  * selection, live JSON validation and AJAX save on the admin config page.
  *
- * @module     tool_tinytoolbar/admin
+ * @module     tool_tinycustomizer/admin
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -33,16 +33,16 @@ import * as Preview from './preview';
 const SELECTORS = {
     PRESET_SELECT:    '#id_active_preset',
     JSON_EDITOR:      '#id_toolbar_json',
-    SAVE_BTN:         '#tinytoolbar-save',
-    RESET_BTN:        '#tinytoolbar-reset',
-    PREVIEW_FRAME:    '#tinytoolbar-preview-frame',
-    TOOLBAR_BUILDER:  '#tinytoolbar-builder',
-    AVAILABLE_ITEMS:  '#tinytoolbar-available',
-    JSON_STATUS:      '#tinytoolbar-json-status',
+    SAVE_BTN:         '#tinycustomizer-save',
+    RESET_BTN:        '#tinycustomizer-reset',
+    PREVIEW_FRAME:    '#tinycustomizer-preview-frame',
+    TOOLBAR_BUILDER:  '#tinycustomizer-builder',
+    AVAILABLE_ITEMS:  '#tinycustomizer-available',
+    JSON_STATUS:      '#tinycustomizer-json-status',
     ENABLE_TOGGLE:    '#id_enable_plugin',
-    TOGGLE_MODE_BTN:  '#tinytoolbar-toggle-mode',
-    VISUAL_PANEL:     '#tinytoolbar-visual-panel',
-    JSON_PANEL:       '#tinytoolbar-json-panel',
+    TOGGLE_MODE_BTN:  '#tinycustomizer-toggle-mode',
+    VISUAL_PANEL:     '#tinycustomizer-visual-panel',
+    JSON_PANEL:       '#tinycustomizer-json-panel',
 };
 
 let presets = {};
@@ -66,7 +66,7 @@ export const init = async() => {
  */
 const loadPresets = async() => {
     const result = await Ajax.call([{
-        methodname: 'tool_tinytoolbar_get_presets',
+        methodname: 'tool_tinycustomizer_get_presets',
         args: {},
     }])[0];
 
@@ -177,7 +177,7 @@ const setStatus = (el, state, icon) => {
     if (!el) {
         return;
     }
-    el.className = `tinytoolbar-json-status ${state ? 'is-' + state : ''}`;
+    el.className = `tinycustomizer-json-status ${state ? 'is-' + state : ''}`;
     el.textContent = icon;
 };
 
@@ -190,7 +190,7 @@ const onSave = async(e) => {
     e.preventDefault();
 
     if (!validateJson()) {
-        const msg = await getString('invalidjson', 'tool_tinytoolbar');
+        const msg = await getString('invalidjson', 'tool_tinycustomizer');
         Notification.addNotification({message: msg, type: 'error'});
         return;
     }
@@ -201,7 +201,7 @@ const onSave = async(e) => {
 
     try {
         const result = await Ajax.call([{
-            methodname: 'tool_tinytoolbar_save_config',
+            methodname: 'tool_tinycustomizer_save_config',
             args: {
                 enabled:       enableToggle ? enableToggle.checked : false,
                 active_preset: presetSelect ? presetSelect.value : 'classic',
@@ -257,14 +257,14 @@ const toggleEditorMode = async() => {
         visualPanel.classList.remove('d-none');
         syncVisualFromJson();
         if (btn) {
-            btn.textContent = await getString('jsoneditor', 'tool_tinytoolbar');
+            btn.textContent = await getString('jsoneditor', 'tool_tinycustomizer');
         }
     } else {
         visualPanel.classList.add('d-none');
         jsonPanel.classList.remove('d-none');
         syncJsonFromVisual();
         if (btn) {
-            btn.textContent = await getString('visualeditor', 'tool_tinytoolbar');
+            btn.textContent = await getString('visualeditor', 'tool_tinycustomizer');
         }
     }
 };
@@ -347,7 +347,7 @@ const onDrop = (e) => {
     }
     const target = e.currentTarget;
     // Clone if dragging FROM available panel INTO builder.
-    if (target.id === 'tinytoolbar-builder' && draggedItem.parentElement.id === 'tinytoolbar-available') {
+    if (target.id === 'tinycustomizer-builder' && draggedItem.parentElement.id === 'tinycustomizer-available') {
         const clone = draggedItem.cloneNode(true);
         enableDragSource(clone.parentElement || target);
         target.appendChild(clone);
@@ -435,7 +435,7 @@ const syncVisualFromJson = () => {
             return;
         }
         const el = document.createElement('span');
-        el.className = 'tinytoolbar-btn badge bg-secondary me-1 mb-1';
+        el.className = 'tinycustomizer-btn badge bg-secondary me-1 mb-1';
         el.setAttribute('draggable', 'true');
         el.dataset.button = btn;
         el.textContent = btn === '|' ? '|' : btn;

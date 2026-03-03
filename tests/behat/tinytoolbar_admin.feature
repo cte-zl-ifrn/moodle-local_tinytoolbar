@@ -1,4 +1,4 @@
-@tool @tool_tinytoolbar
+@tool @tool_tinycustomizer
 Feature: Administer TinyMCE toolbar configuration
   In order to customise the TinyMCE editor toolbar
   As an administrator
@@ -28,7 +28,7 @@ Feature: Administer TinyMCE toolbar configuration
 
   @javascript
   Scenario: Administrator can access the visual configurator page
-    When I navigate to "/admin/tool/tinytoolbar/admin/config_form.php"
+    When I navigate to "/admin/tool/tinycustomizer/admin/config_form.php"
     Then I should see "Configure Toolbar"
     And I should see "Save changes"
     And I should see "Reset to default"

@@ -15,20 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Upgrade steps for tool_tinytoolbar.
+ * Upgrade steps for tool_tinycustomizer.
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * Execute tool_tinytoolbar upgrade from the given old version.
+ * Execute tool_tinycustomizer upgrade from the given old version.
  *
  * @param  int  $oldversion The version this plugin was last at.
  * @return bool
  */
-function xmldb_tool_tinytoolbar_upgrade(int $oldversion): bool {
+function xmldb_tool_tinycustomizer_upgrade(int $oldversion): bool {
     // Future upgrade steps go here.
     return true;
 }

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Language strings for tool_tinytoolbar (Portuguese/Brazil).
+ * Language strings for tool_tinycustomizer (Portuguese/Brazil).
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -65,7 +65,7 @@ $string['visualeditor'] = 'Editor visual';
 $string['toggleeditor'] = 'Alternar modo do editor';
 
 // Capabilities.
-$string['tinytoolbar:manage'] = 'Gerenciar configuração da barra de ferramentas TinyMCE';
+$string['tinycustomizer:manage'] = 'Gerenciar configuração da barra de ferramentas TinyMCE';
 
 // Privacy.
 $string['privacy:metadata'] = 'O plugin Configurador da Barra de Ferramentas TinyMCE não armazena dados pessoais.';

@@ -1,10 +1,10 @@
 /**
- * Gruntfile for tool_tinytoolbar.
+ * Gruntfile for tool_tinycustomizer.
  *
  * Provides AMD build tasks that match Moodle's standard tooling.
  * Run `npm install` then `npx grunt amd` to compile AMD modules.
  *
- * @package tool_tinytoolbar
+ * @package tool_tinycustomizer
  */
 
 'use strict';

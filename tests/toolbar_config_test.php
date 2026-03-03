@@ -15,21 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * PHPUnit tests for tool_tinytoolbar\toolbar_config.
+ * PHPUnit tests for tool_tinycustomizer\toolbar_config.
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tool_tinytoolbar;
+namespace tool_tinycustomizer;
 
 use advanced_testcase;
 
 /**
  * Unit tests for toolbar_config class.
  *
- * @covers \tool_tinytoolbar\toolbar_config
+ * @covers \tool_tinycustomizer\toolbar_config
  */
 class toolbar_config_test extends advanced_testcase {
 
@@ -88,7 +88,7 @@ class toolbar_config_test extends advanced_testcase {
      * Test get_active_config returns empty array when plugin is disabled.
      */
     public function test_get_active_config_disabled(): void {
-        set_config('enable_plugin', 0, 'tool_tinytoolbar');
+        set_config('enable_plugin', 0, 'tool_tinycustomizer');
         $config = toolbar_config::get_active_config();
         $this->assertIsArray($config);
         $this->assertEmpty($config);
@@ -98,8 +98,8 @@ class toolbar_config_test extends advanced_testcase {
      * Test get_active_config returns config for a built-in preset when enabled.
      */
     public function test_get_active_config_preset(): void {
-        set_config('enable_plugin', 1, 'tool_tinytoolbar');
-        set_config('active_preset', toolbar_config::PRESET_MINIMAL, 'tool_tinytoolbar');
+        set_config('enable_plugin', 1, 'tool_tinycustomizer');
+        set_config('active_preset', toolbar_config::PRESET_MINIMAL, 'tool_tinycustomizer');
 
         $config = toolbar_config::get_active_config();
         $this->assertIsArray($config);
@@ -112,9 +112,9 @@ class toolbar_config_test extends advanced_testcase {
      */
     public function test_get_active_config_custom(): void {
         $customJson = json_encode(['toolbar' => 'bold italic', 'menubar' => false]);
-        set_config('enable_plugin', 1, 'tool_tinytoolbar');
-        set_config('active_preset', toolbar_config::PRESET_CUSTOM, 'tool_tinytoolbar');
-        set_config('toolbar_json', $customJson, 'tool_tinytoolbar');
+        set_config('enable_plugin', 1, 'tool_tinycustomizer');
+        set_config('active_preset', toolbar_config::PRESET_CUSTOM, 'tool_tinycustomizer');
+        set_config('toolbar_json', $customJson, 'tool_tinycustomizer');
 
         $config = toolbar_config::get_active_config();
         $this->assertIsArray($config);
@@ -137,8 +137,8 @@ class toolbar_config_test extends advanced_testcase {
      * Test tiny_get_config_data returns same value as get_active_config.
      */
     public function test_tiny_get_config_data(): void {
-        set_config('enable_plugin', 1, 'tool_tinytoolbar');
-        set_config('active_preset', toolbar_config::PRESET_CLASSIC, 'tool_tinytoolbar');
+        set_config('enable_plugin', 1, 'tool_tinycustomizer');
+        set_config('active_preset', toolbar_config::PRESET_CLASSIC, 'tool_tinycustomizer');
 
         $expected = toolbar_config::get_active_config();
         $result   = toolbar_config::tiny_get_config_data();

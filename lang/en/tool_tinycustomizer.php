@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Language strings for tool_tinytoolbar (English).
+ * Language strings for tool_tinycustomizer (English).
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -65,7 +65,7 @@ $string['visualeditor'] = 'Visual editor';
 $string['toggleeditor'] = 'Toggle editor mode';
 
 // Capabilities.
-$string['tinytoolbar:manage'] = 'Manage Tiny Toolbar configuration';
+$string['tinycustomizer:manage'] = 'Manage Tiny Toolbar configuration';
 
 // Privacy.
 $string['privacy:metadata'] = 'The Tiny Toolbar Configurator plugin does not store any personal data.';
