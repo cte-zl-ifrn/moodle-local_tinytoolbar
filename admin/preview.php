@@ -15,23 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Live preview page for tool_tinytoolbar (rendered inside an iframe).
+ * Live preview page for tool_tinycustomizer (rendered inside an iframe).
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once('../../../../config.php');
 
-use tool_tinytoolbar\toolbar_config;
+use tool_tinycustomizer\toolbar_config;
 
 require_login();
 require_capability('moodle/site:config', context_system::instance());
 
-$PAGE->set_url('/admin/tool/tinytoolbar/admin/preview.php');
+$PAGE->set_url('/admin/tool/tinycustomizer/admin/preview.php');
 $PAGE->set_context(context_system::instance());
-$PAGE->set_title(get_string('preview', 'tool_tinytoolbar'));
+$PAGE->set_title(get_string('preview', 'tool_tinycustomizer'));
 $PAGE->set_pagelayout('embedded');
 
 $configjson = optional_param('config', '', PARAM_RAW);
@@ -50,14 +50,14 @@ $menubaroption  = isset($config['menubar']) ? (is_bool($config['menubar']) ? ($c
 
 echo $OUTPUT->header();
 ?>
-<div id="tinytoolbar-preview-container" class="tool-tinytoolbar-preview">
-    <div id="tinytoolbar-preview-editor"></div>
+<div id="tinycustomizer-preview-container" class="tool-tinycustomizer-preview">
+    <div id="tinycustomizer-preview-editor"></div>
 </div>
 <script>
     require(['core_editor/loader'], function(loader) {
         loader.getEditor('textarea').then(function(editor) {
             if (editor && editor.name === 'tiny') {
-                var target = document.getElementById('tinytoolbar-preview-editor');
+                var target = document.getElementById('tinycustomizer-preview-editor');
                 var textarea = document.createElement('textarea');
                 textarea.id = 'preview-textarea';
                 textarea.name = 'preview';
@@ -76,7 +76,7 @@ echo $OUTPUT->header();
                 }
             }
         }).catch(function() {
-            document.getElementById('tinytoolbar-preview-container').innerHTML =
+            document.getElementById('tinycustomizer-preview-container').innerHTML =
                 '<div class="alert alert-info">' +
                 'TinyMCE preview requires a full Moodle page context with an active editor instance.' +
                 '</div>';

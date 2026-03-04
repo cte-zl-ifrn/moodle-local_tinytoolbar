@@ -1,62 +1,62 @@
 /**
- * Styles for tool_tinytoolbar.
+ * Styles for tool_tinycustomizer.
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /* ── Admin configurator page ─────────────────────────────────────────────── */
 
-.tool-tinytoolbar-configurator {
+.tool-tinycustomizer-configurator {
     max-width: 1200px;
 }
 
 /* JSON textarea */
-.tinytoolbar-json-textarea {
+.tinycustomizer-json-textarea {
     font-size: 0.85rem;
     min-height: 220px;
     resize: vertical;
 }
 
 /* JSON validation status indicator */
-.tinytoolbar-json-status {
+.tinycustomizer-json-status {
     display: inline-block;
     font-size: 1.1rem;
     min-width: 1.5em;
     text-align: center;
 }
 
-.tinytoolbar-json-status.is-valid {
+.tinycustomizer-json-status.is-valid {
     color: #198754; /* Bootstrap success green */
 }
 
-.tinytoolbar-json-status.is-invalid {
+.tinycustomizer-json-status.is-invalid {
     color: #dc3545; /* Bootstrap danger red */
 }
 
 /* ── Drag-and-drop palette & builder ─────────────────────────────────────── */
 
-.tinytoolbar-palette,
-.tinytoolbar-builder {
+.tinycustomizer-palette,
+.tinycustomizer-builder {
     min-height: 50px;
     background: #f8f9fa;
     transition: background 0.15s;
 }
 
-.tinytoolbar-builder {
+.tinycustomizer-builder {
     min-height: 60px;
 }
 
 /* Highlight drop zone while dragging */
-.tinytoolbar-builder.drag-over,
-.tinytoolbar-palette.drag-over {
+.tinycustomizer-builder.drag-over,
+.tinycustomizer-palette.drag-over {
     background: #e8f4fd;
     border-color: #0d6efd !important;
 }
 
 /* Individual toolbar buttons in palette / builder */
-.tinytoolbar-btn {
+.tinycustomizer-btn {
     cursor: grab;
     user-select: none;
     font-size: 0.8rem;
@@ -64,21 +64,21 @@
     transition: opacity 0.15s;
 }
 
-.tinytoolbar-btn.dragging {
+.tinycustomizer-btn.dragging {
     opacity: 0.4;
     cursor: grabbing;
 }
 
 /* ── Preview iframe wrapper ───────────────────────────────────────────────── */
 
-.tool-tinytoolbar-preview {
+.tool-tinycustomizer-preview {
     padding: 1rem;
 }
 
 /* ── Responsive tweaks ────────────────────────────────────────────────────── */
 
 @media (max-width: 991.98px) {
-    #tinytoolbar-preview-frame {
+    #tinycustomizer-preview-frame {
         height: 300px !important;
     }
 }

@@ -58,7 +58,7 @@ npx grunt amd      # Build AMD modules (output: amd/build/)
 Place (or symlink) the plugin in your Moodle installation:
 
 ```bash
-ln -s /path/to/moodle-local_tinytoolbar /path/to/moodle/local/tinytoolbar
+ln -s /path/to/moodle-local_tinytoolbar /path/to/moodle/admin/tool/tinycustomizer
 ```
 
 Then run the Moodle upgrade:
@@ -105,7 +105,7 @@ We follow **[Moodle Coding Style](https://moodledev.io/general/development/polic
 ### CSS
 
 - Follow **Bootstrap 5** conventions.
-- Prefix all selectors with `.tool-tinytoolbar-` or `.tinytoolbar-`.
+- Prefix all selectors with `.tool-tinycustomizer-` or `.tinycustomizer-`.
 - Lint:
   ```bash
   npx stylelint styles.css
@@ -119,14 +119,14 @@ We follow **[Moodle Coding Style](https://moodledev.io/general/development/polic
 
 ```bash
 # From Moodle root:
-vendor/bin/phpunit --testsuite local_tinytoolbar_testsuite
+vendor/bin/phpunit --testsuite tool_tinycustomizer_testsuite
 ```
 
 ### Behat (browser tests)
 
 ```bash
 php admin/tool/behat/cli/init.php
-vendor/bin/behat --config behat/behat.yml --tags @local_tinytoolbar
+vendor/bin/behat --config behat/behat.yml --tags @tool_tinycustomizer
 ```
 
 ### Full CI pipeline

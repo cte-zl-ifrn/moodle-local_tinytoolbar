@@ -67,7 +67,7 @@ That's it — TinyMCE now uses your selected toolbar.
 For full control, click the **Configure Toolbar** button on the settings page or navigate directly to:
 
 ```
-/local/tinytoolbar/admin/config_form.php
+/admin/tool/tinycustomizer/admin/config_form.php
 ```
 
 From here you can:
@@ -112,14 +112,14 @@ npx grunt amd
 ### Run PHPUnit tests
 
 ```bash
-vendor/bin/phpunit --testsuite local_tinytoolbar_testsuite
+vendor/bin/phpunit --testsuite tool_tinycustomizer_testsuite
 ```
 
 ### Run Behat tests
 
 ```bash
 php admin/tool/behat/cli/init.php
-vendor/bin/behat --config /path/to/behat.yml --tags @local_tinytoolbar
+vendor/bin/behat --config /path/to/behat.yml --tags @tool_tinycustomizer
 ```
 
 ---
@@ -127,7 +127,7 @@ vendor/bin/behat --config /path/to/behat.yml --tags @local_tinytoolbar
 ## 📁 File structure
 
 ```
-local/tinytoolbar/
+admin/tool/tinycustomizer/
 ├── version.php              # Plugin metadata
 ├── db/
 │   ├── install.xml          # Database schema
@@ -151,7 +151,7 @@ local/tinytoolbar/
 │   └── config.mustache      # Configurator page template
 ├── tests/
 │   ├── toolbar_config_test.php
-│   └── behat/tinytoolbar_admin.feature
+│   └── behat/tinycustomizer_admin.feature
 ├── pix/toolbar.svg          # Plugin icon
 ├── styles.css               # Plugin styles
 └── .github/workflows/       # CI + release automation

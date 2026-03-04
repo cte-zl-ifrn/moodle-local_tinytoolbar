@@ -15,14 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Toolbar configuration class for tool_tinytoolbar.
+ * Toolbar configuration class for tool_tinycustomizer.
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tool_tinytoolbar;
+namespace tool_tinycustomizer;
 
 /**
  * Manages TinyMCE toolbar configuration and integrates with the editor via hooks.
@@ -88,16 +88,16 @@ class toolbar_config {
      * @return array TinyMCE configuration options array.
      */
     public static function get_active_config(): array {
-        $enabled = get_config('tool_tinytoolbar', 'enable_plugin');
+        $enabled = get_config('tool_tinycustomizer', 'enable_plugin');
         if (empty($enabled)) {
             return [];
         }
 
-        $preset = get_config('tool_tinytoolbar', 'active_preset');
+        $preset = get_config('tool_tinycustomizer', 'active_preset');
         $presets = self::get_presets();
 
         if ($preset === self::PRESET_CUSTOM || !isset($presets[$preset])) {
-            $toolbarjson = get_config('tool_tinytoolbar', 'toolbar_json');
+            $toolbarjson = get_config('tool_tinycustomizer', 'toolbar_json');
             if (empty($toolbarjson)) {
                 return [];
             }

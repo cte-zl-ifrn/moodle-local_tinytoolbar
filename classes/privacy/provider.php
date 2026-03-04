@@ -15,19 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy API implementation for tool_tinytoolbar.
+ * Privacy API implementation for tool_tinycustomizer.
  *
- * @package    tool_tinytoolbar
+ * @package    tool_tinycustomizer
  * @copyright  2024 IFRN
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace tool_tinytoolbar\privacy;
+namespace tool_tinycustomizer\privacy;
 
 use core_privacy\local\metadata\collection;
 
 /**
- * The tool_tinytoolbar plugin does not store any personal user data.
+ * The tool_tinycustomizer plugin does not store any personal user data.
  */
 class provider implements \core_privacy\local\metadata\provider {
 
